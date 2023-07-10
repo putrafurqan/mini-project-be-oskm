@@ -42,21 +42,7 @@ export const env = createEnv({
       (str) => (str ? +str : 1),
       // SAMPLER_RATIO must be a positive number
       z.number().positive().min(0).max(1)
-    ),
-    GOOGLE_APPLICATION_CREDENTIALS: z.string().min(1),
-    BUCKET_NAME: z.string().min(1),
-    URL_EXPIRATION_TIME: z.preprocess(
-      // If URL_EXPIRATION_TIME is not set, set it to 1 hour
-      (str) => (str ? +str : 60 * 60 * 1000),
-      // URL_EXPIRATION_TIME must be a positive integer
-      z.number().int().positive().min(1)
-    ),
-    BUCKET_CORS_EXPIRATION_TIME: z.preprocess(
-      // If BUCKET_CORS_EXPIRATION_TIME is not set, set it to 1 hour
-      (str) => (str ? +str : 60 * 60),
-      // BUCKET_CORS_EXPIRATION_TIME must be a positive integer
-      z.number().int().positive().min(1)
-    ),
+    )
   },
 
   /**
@@ -80,11 +66,7 @@ export const env = createEnv({
     SESSION_MAXAGE: process.env.SESSION_MAXAGE,
     S_MAXAGE: process.env.S_MAXAGE,
     STALE_WHILE_REVALIDATE: process.env.STALE_WHILE_REVALIDATE,
-    SAMPLER_RATIO: process.env.SAMPLER_RATIO,
-    GOOGLE_APPLICATION_CREDENTIALS: process.env.GOOGLE_APPLICATION_CREDENTIALS,
-    BUCKET_NAME: process.env.BUCKET_NAME,
-    URL_EXPIRATION_TIME: process.env.URL_EXPIRATION_TIME,
-    BUCKET_CORS_EXPIRATION_TIME: process.env.BUCKET_CORS_EXPIRATION_TIME,
+    SAMPLER_RATIO: process.env.SAMPLER_RATIO
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation.
