@@ -17,6 +17,13 @@ export const crudRouter = createTRPCRouter({
       // Expected output: data student berdasarkan id yang diberikan, fetch hanya credits number dari tabel course (beserta data student)
     }),
 
+  insertNewStudent: publicProcedure
+    .input(z.object({ first_name: z.string(), last_name: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      // TODO: isi logic disini
+      // Expected output: hasil data yang di insert
+    }),
+
   insertNewCourse: publicProcedure
     .input(z.object({ name: z.string(), credits: z.number() }))
     .mutation(async ({ ctx, input }) => {
