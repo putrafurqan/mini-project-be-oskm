@@ -10,11 +10,16 @@ export const crudRouter = createTRPCRouter({
       // Expected output: data student berdasarkan id yang diberikan, kalau id tidak diberikan, fetch semua data
     }),
 
-  getStudentCreditsList: publicProcedure
-    .input(z.object({ studentId: z.string().uuid() }))
+  getAllCourses: publicProcedure.query(async ({ ctx }) => {
+    // TODO: isi logic disini
+    // Expected output: seluruh data course yang ada
+  }),
+
+  getStudentsListOnCourseId: publicProcedure
+    .input(z.object({ courseId: z.string().uuid() }))
     .query(async ({ ctx, input }) => {
       // TODO: isi logic disini
-      // Expected output: data student berdasarkan id yang diberikan, fetch hanya credits number dari tabel course (beserta data student)
+      // Expected output: data course berdasarkan id yang diberikan beserta seluruh student yang mengikutinya
     }),
 
   insertNewStudent: publicProcedure
