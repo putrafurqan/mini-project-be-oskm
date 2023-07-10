@@ -2,11 +2,8 @@ import { type NextPage } from "next";
 import Link from "next/link";
 import AuthShowcase from "~/components/AuthShowcase";
 import Layout from "~/layout";
-import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
-
   return (
     <Layout title="Home">
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
@@ -40,7 +37,8 @@ const Home: NextPage = () => {
           </div>
           <div className="flex flex-col items-center gap-2">
             <p className="text-2xl text-white">
-              {hello.data ? hello.data.greeting : "Loading tRPC query..."}
+              Langsung aja tambah /api/panel di urlnya ya, jadi
+              localhost:3000/api/panel
             </p>
             <AuthShowcase />
           </div>
