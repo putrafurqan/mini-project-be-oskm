@@ -23,7 +23,7 @@ export const crudRouter = createTRPCRouter({
     }),
 
   insertNewStudent: publicProcedure
-    .input(z.object({ first_name: z.string(), last_name: z.string() }))
+    .input(z.object({ firstName: z.string(), lastName: z.string() }))
     .mutation(async ({ ctx, input }) => {
       // TODO: isi logic disini
       // Expected output: hasil data yang di insert
